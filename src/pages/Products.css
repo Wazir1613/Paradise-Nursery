@@ -1,0 +1,266 @@
+/* Overall page container */
+.products-page {
+  background-color: #f8f8f8; /* Light background for the page */
+  min-height: 100vh;
+}
+
+/* Header Styling - Matching the image closely */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px; /* Reduced padding slightly */
+  background-color: #5cb85c; /* Green header background */
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #4cae4c; /* Darker green border */
+}
+
+.products-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between logo and "Plants" title */
+}
+
+.products-header .logo-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.products-header .nursery-logo {
+  height: 40px; /* Size of your logo image */
+  width: 40px;
+  border-radius: 50%; /* If your logo is circular */
+  margin-right: 10px;
+  background-color: white; /* Placeholder if no image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #5cb85c;
+  font-weight: bold;
+}
+
+.products-header .logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.products-header .logo-main {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.products-header .logo-sub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.products-header .header-title {
+  font-size: 1.8rem; /* "Plants" text size */
+  font-weight: bold;
+  color: white;
+}
+
+.products-header .header-right {
+  display: flex;
+  align-items: center;
+}
+
+.products-header .cart-button {
+  background-color: transparent; /* No background */
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.products-header .cart-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.products-header .cart-count {
+  font-size: 1rem;
+  background-color: #e67e22; /* Orange count bubble */
+  color: white;
+  border-radius: 50%;
+  padding: 2px 7px;
+  margin-left: 5px;
+  font-weight: bold;
+  min-width: 25px; /* Ensures round shape for single/double digits */
+  text-align: center;
+}
+
+/* Section Title (Air Purifying Plants) */
+.section-title {
+  text-align: center;
+  color: #1b5e20;
+  font-size: 2.2rem;
+  margin-top: 50px; /* More space from header */
+  margin-bottom: 40px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px; /* Adjust as needed */
+    width: 80px; /* Length of the line */
+    height: 3px; /* Thickness of the line */
+    background-color: #5cb85c; /* Green line */
+    border-radius: 5px;
+}
+
+
+/* Product Grid - Two columns */
+.product-list {
+  display: grid; /* Use CSS Grid for robust 2-column layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive 2-column */
+  gap: 30px;
+  padding: 0 40px 60px 40px; /* Increased padding bottom */
+  max-width: 1200px; /* Max width for the grid */
+  margin: 0 auto; /* Center the grid */
+}
+
+/* Individual product card */
+.card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Stronger shadow */
+  padding: 20px; /* Slightly reduced padding */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* For SALE badge positioning */
+  overflow: hidden; /* Ensures badge doesn't spill */
+}
+
+.card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.sale-badge {
+    position: absolute;
+    top: 15px;
+    right: -25px; /* Adjust to position at corner */
+    background-color: #e67e22; /* Orange color */
+    color: white;
+    padding: 5px 30px; /* Wider padding */
+    font-size: 0.85rem;
+    font-weight: bold;
+    transform: rotate(45deg); /* Rotate to corner */
+    transform-origin: 100% 0%; /* Rotate from top right corner */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    pointer-events: none; /* Allows clicks on elements behind it */
+}
+
+
+.product-image {
+  max-width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: contain; /* Ensure image fits without cropping */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #f0f0f0; /* Light background for images */
+}
+
+.card h3 {
+  font-size: 1.5rem; /* Slightly smaller for consistency */
+  color: #1b5e20;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.card .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333; /* Slightly darker price */
+  margin-bottom: 10px;
+}
+
+.card .description {
+  font-size: 0.95rem; /* Slightly smaller description */
+  color: #666;
+  margin-bottom: 20px;
+  flex-grow: 1;
+  line-height: 1.4;
+}
+
+.card button {
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%; /* Full width button */
+}
+
+.card button:hover {
+  background-color: #43a047;
+  transform: translateY(-2px);
+}
+
+.card button:disabled {
+  background-color: #b0b0b0;
+  cursor: not-allowed;
+  transform: none; /* No hover effect when disabled */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .products-header {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 20px;
+  }
+  .products-header .header-left {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .products-header .header-title {
+    font-size: 1.5rem;
+  }
+  .products-header .logo-main {
+    font-size: 1rem;
+  }
+  .products-header .logo-sub {
+    font-size: 0.7rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .product-list {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    padding: 0 20px 40px 20px;
+  }
+  .card {
+    width: 100%; /* Full width cards on small screens */
+    max-width: 350px; /* Optional: limit card width even on single column */
+    margin: 0 auto;
+  }
+}
